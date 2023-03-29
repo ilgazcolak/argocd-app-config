@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aws-eks-demo
+spec:
+  selector:
+    matchLabels:
+      app: aws-eks-demo
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: aws-eks-demo
+    spec:
+      containers:
+      - name: aws-eks-demo
+        image: 730788892065.dkr.ecr.eu-central-1.amazonaws.com/aws-eks-demo:1.0.0
+        ports:
+        - containerPort: 8080
